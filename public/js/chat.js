@@ -49,7 +49,7 @@ var VideoChat = {
       })
       .then((stream) => {
         VideoChat.onMediaStream(stream);
-        localVideoText.text("Drag Me");
+        localVideoText.text("Mova-me");
         setTimeout(() => localVideoText.fadeOut(), 5000);
       })
       .catch((error) => {
@@ -69,8 +69,8 @@ var VideoChat = {
     // Add the stream as video's srcObject.
     // Now that we have webcam video sorted, prompt user to share URL
     Snackbar.show({
-      text: "Here is the join link for your call: " + url,
-      actionText: "Copy Link",
+      text: "Aqui está o link para participar da sua chamada: " + url,
+      actionText: "Copiar Link",
       width: "750px",
       pos: "top-center",
       actionTextColor: "#616161",
@@ -351,7 +351,7 @@ function logIt(message, error) {
 // Called when socket receives message that room is full
 function chatRoomFull() {
   alert(
-    "Chat room is full. Check to make sure you don't have multiple open tabs, or try with a new room link"
+    "A sala de bate-papo está cheia. Verifique se você não tem várias guias abertas ou tente com um novo link de sala"
   );
   // Exit room and redirect
   window.location.href = "/newcall";
@@ -457,7 +457,7 @@ function muteMicrophone() {
   if (isMuted) {
     micButtonIcon.classList.remove("fa-microphone");
     micButtonIcon.classList.add("fa-microphone-slash");
-    micButtonText.innerText = "Unmute";
+    micButtonText.innerText = "Desmute";
   } else {
     micButtonIcon.classList.add("fa-microphone");
     micButtonIcon.classList.remove("fa-microphone-slash");
@@ -483,17 +483,17 @@ function pauseVideo() {
   const videoButtonText = document.getElementById("video-text");
   // update pause button icon and text
   if (videoIsPaused) {
-    localVideoText.text("Video is paused");
+    localVideoText.text("Vídeo está pausado");
     localVideoText.show();
     videoButtonIcon.classList.remove("fa-video");
     videoButtonIcon.classList.add("fa-video-slash");
-    videoButtonText.innerText = "Unpause Video";
+    videoButtonText.innerText = "Retome o vídeo";
   } else {
-    localVideoText.text("Video unpaused");
+    localVideoText.text("Vídeo retomado");
     setTimeout(() => localVideoText.fadeOut(), 2000);
     videoButtonIcon.classList.add("fa-video");
     videoButtonIcon.classList.remove("fa-video-slash");
-    videoButtonText.innerText = "Pause Video";
+    videoButtonText.innerText = "Pausar Vídeo";
   }
 }
 // End pause Video
@@ -502,7 +502,7 @@ function pauseVideo() {
 function swap() {
   // Handle swap video before video call is connected
   if (!VideoChat.connected) {
-    alert("You must join a call before you can share your screen.");
+    alert("Você deve entrar em uma chamada antes de compartilhar sua tela.");
     return;
   }
   // Store swap button icon and text
@@ -513,7 +513,7 @@ function swap() {
     // Show accept screenshare snackbar
     Snackbar.show({
       text:
-        "Please allow screen share. Click the middle of the picture above and then press share.",
+        "Permita o compartilhamento de tela. Clique no meio da imagem acima e pressione compartilhar.",
       width: "400px",
       pos: "bottom-center",
       actionTextColor: "#616161",
@@ -597,7 +597,7 @@ function switchStreamHelper(stream) {
 function requestToggleCaptions() {
   // Handle requesting captions before connected
   if (!VideoChat.connected) {
-    alert("You must be connected to a peer to use Live Caption");
+    alert("Você deve estar conectado a um par para usar a legenda ao vivo");
     return;
   }
   if (receivingCaptions) {
@@ -607,7 +607,7 @@ function requestToggleCaptions() {
   } else {
     Snackbar.show({
       text:
-        "This is an experimental feature. Live caption requires the other user to be using Chrome",
+        "Este é um recurso experimental. A legenda ativa requer que o outro usuário use o Chrome",
       width: "400px",
       pos: "bottom-center",
       actionTextColor: "#616161",
@@ -691,7 +691,7 @@ function recieveCaptions(captions) {
   // Other user is not using chrome
   if (captions === "notusingchrome") {
     alert(
-      "Other caller must be using chrome for this feature to work. Live Caption turned off."
+      "Outro caller deve estar usando o Chrome para que este recurso funcione. Legenda ao vivo desativada."
     );
     receivingCaptions = false;
     captionText.text("").fadeOut();
@@ -827,13 +827,13 @@ function togglePictureInPicture() {
     } else {
       remoteVideoVanilla.requestPictureInPicture().catch((error) => {
         alert(
-          "You must be connected to another person to enter picture in picture."
+          "Você deve estar conectado a outra pessoa para usar o picture in picture."
         );
       });
     }
   } else {
     alert(
-      "Picture in picture is not supported in your browser. Consider using Chrome or Safari."
+      "Picture in picture não é compatível com seu navegador. Considere usar o Chrome ou Safari."
     );
   }
 }
@@ -867,7 +867,7 @@ function startUp() {
   }
 
   // Set tab title
-  document.title = "Zipcall - " + url.substring(url.lastIndexOf("/") + 1);
+  document.title = "OnDoctor Telemedicina - " + url.substring(url.lastIndexOf("/") + 1);
 
   // get webcam on load
   VideoChat.requestMediaStream();
@@ -917,22 +917,22 @@ function startUp() {
 
   // Show accept webcam snackbar
   Snackbar.show({
-    text: "Please allow microphone and webcam access",
-    actionText: "Show Me How",
+    text: "Permita o acesso ao microfone e webcam",
+    actionText: "Mostre-me Como",
     width: "455px",
     pos: "top-right",
     actionTextColor: "#616161",
     duration: 50000,
     onActionClick: function (element) {
       window.open(
-        "https://getacclaim.zendesk.com/hc/en-us/articles/360001547832-Setting-the-default-camera-on-your-browser",
+        "https://intervyo.zendesk.com/hc/pt/articles/360002141292-Como-fa%C3%A7o-para-ativar-meu-microfone-e-webcam-no-Chrome-",
         "_blank"
       );
     },
   });
 
   // Set caption text on start
-  captionText.text("Waiting for other user to join...").fadeIn();
+  captionText.text("Esperando que outro usuário entre...").fadeIn();
 
   // Reposition captions on start
   rePositionCaptions();

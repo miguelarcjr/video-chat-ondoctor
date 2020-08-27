@@ -48,7 +48,7 @@
     <p id="remote-video-text"></p>
     <video id="remote-video" autoplay playsinline></video>
     <div id="moveable">
-      <p id="local-video-text">No webcam input</p>
+      <p id="local-video-text">Nenhuma webcam conectada</p>
       <video id="local-video" autoplay muted playsinline></video>
     </div>
 
@@ -57,7 +57,7 @@
         <div class="chat-messages"></div>
       </div>
       <form class="compose">
-        <input type="text" placeholder="Type a message" />
+        <input type="text" placeholder="Digite uma messagem" />
       </form>
     </div>
 
@@ -66,7 +66,7 @@
         <button class="hoverButton" onclick="{muteMicrophone()}">
           <i id="mic-icon" class="fas fa-microphone fa-xs"></i>
         </button>
-        <div class="HoverState" id="mic-text">Mute</div>
+        <div class="HoverState" id="mic-text">Mutar</div>
       </div>
 
       <!--      <div class="buttonContainer">-->
@@ -80,21 +80,21 @@
         <button class="hoverButton" onclick="{pauseVideo()}">
           <i class="fas fa-video fa-xs" id="video-icon"></i>
         </button>
-        <div class="HoverState" id="video-text">Pause Video</div>
+        <div class="HoverState" id="video-text">Pausar Video</div>
       </div>
 
       <div class="buttonContainer">
         <button class="hoverButton" id="share-button" onclick="{swap()}">
           <i id="swap-icon" class="fas fa-desktop fa-xs"></i>
         </button>
-        <div class="HoverState" id="swap-text">Share Screen</div>
+        <div class="HoverState" id="swap-text">Mostrar Tela</div>
       </div>
 
       <div class="buttonContainer">
         <button class="hoverButton" onclick="{toggleChat()}">
           <i id="chat-icon" class="fas fa-comment fa-xs"></i>
         </button>
-        <div class="HoverState" id="chat-text">Show Chat</div>
+        <div class="HoverState" id="chat-text">Exibir Chat</div>
       </div>
 
       <div class="buttonContainer">
@@ -105,7 +105,7 @@
         >
           <i class="fas fa-external-link-alt fa-xs"></i>
         </button>
-        <div class="HoverState" id="pip-text">Toggle Picture in Picture</div>
+        <div class="HoverState" id="pip-text">Exibir em Miniatura</div>
       </div>
 
       <div class="buttonContainer">
@@ -113,7 +113,7 @@
           <i class="fas fa-closed-captioning fa-xs"></i>
         </button>
         <div class="HoverState" id="caption-button-text">
-          Start Live Caption
+          Ativar Legendas
         </div>
       </div>
 
@@ -124,7 +124,7 @@
         >
           <i class="fas fa-phone-slash fa-xs"></i>
         </button>
-        <div class="HoverState">End Call</div>
+        <div class="HoverState">Encerrar Chamada</div>
       </div>
     </div>
 
